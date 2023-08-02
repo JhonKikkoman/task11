@@ -1,25 +1,26 @@
 export default class Team {
   constructor() {
-    this.memebers = [];
+    this.members = [];
   }
 
   addAll(players) {
-    this.memebers.push(players);
+    this.members.push(players);
   }
 
   [Symbol.iterator]() {
-    const counter = 0;
-    const counterEnding = this.members.length;
+    const index = -1;
+    let counter = [...this.members];
     return {
       next() {
-        if (counterEnding === counter) {
+        counter += 1;
+        if (index === counter.length) {
           return {
             value: undefined,
             done: true,
           };
         }
         return {
-          value: counter,
+          value: counter[index],
           done: false,
         };
       },
@@ -42,5 +43,4 @@ const obj2 = {
 const members = new Team();
 members.addAll(obj1);
 members.addAll(obj2);
-console.log(members);
-console.log(members.iterator().next());
+console.log(members.iterator());
