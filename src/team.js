@@ -8,14 +8,14 @@ export default class Team {
   }
 
   [Symbol.iterator]() {
-    const index = -1;
-    let counter = [...this.members];
+    let index = -1;
+    const counter = [...this.members];
     return {
       next() {
-        counter += 1;
+        index += 1;
         if (index === counter.length) {
           return {
-            value: undefined,
+            value: counter[index],
             done: true,
           };
         }
@@ -43,4 +43,6 @@ const obj2 = {
 const members = new Team();
 members.addAll(obj1);
 members.addAll(obj2);
-console.log(members.iterator());
+console.log(members);
+console.log(members[Symbol.iterator]().next());
+console.log(members[Symbol.iterator]().next());
