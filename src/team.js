@@ -15,7 +15,7 @@ export default class Team {
         index += 1;
         if (index === counter.length) {
           return {
-            value: counter[index],
+            value: undefined,
             done: true,
           };
         }
@@ -43,6 +43,7 @@ const obj2 = {
 const members = new Team();
 members.addAll(obj1);
 members.addAll(obj2);
-console.log(members);
-console.log(members[Symbol.iterator]().next());
-console.log(members[Symbol.iterator]().next());
+const dayn = members[Symbol.iterator]();
+console.log(dayn.next());
+console.log(dayn.next());
+console.log(dayn.next());
