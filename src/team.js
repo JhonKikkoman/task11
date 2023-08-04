@@ -1,10 +1,19 @@
 export default class Team {
   constructor() {
-    this.members = [];
-  }
-
-  addAll(players) {
-    this.members.push(players);
+    this.members = [
+      {
+        health: 100,
+        level: 1,
+        name: 'Jhon',
+        type: 'Swordsman',
+      },
+      {
+        health: 60,
+        level: 1,
+        name: 'Kira',
+        type: 'Undead',
+      },
+    ];
   }
 
   [Symbol.iterator]() {
@@ -27,23 +36,3 @@ export default class Team {
     };
   }
 }
-
-const obj1 = {
-  health: 100,
-  level: 1,
-  name: 'Jhon',
-  type: 'Swordsman',
-};
-const obj2 = {
-  health: 60,
-  level: 1,
-  name: 'Kira',
-  type: 'Undead',
-};
-const members = new Team();
-members.addAll(obj1);
-members.addAll(obj2);
-const dayn = members[Symbol.iterator]();
-console.log(dayn.next());
-console.log(dayn.next());
-console.log(dayn.next());
