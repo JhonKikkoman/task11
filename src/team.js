@@ -22,15 +22,15 @@ export default class Team {
     return {
       next() {
         index += 1;
-        if (index === counter.length) {
+        if (index < counter.length) {
           return {
-            value: undefined,
-            done: true,
+            value: counter[index],
+            done: false,
           };
         }
         return {
-          value: counter[index],
-          done: false,
+          value: undefined,
+          done: true,
         };
       },
     };
